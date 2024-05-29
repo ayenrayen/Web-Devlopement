@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Panel</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-panel {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .login-panel input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    .login-panel button {
+        width: 100%;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .login-panel button:hover {
+        background-color: #0056b3;
+    }
+
+    .error-message {
+        color: red;
+    }
+</style>
 </head>
 <body>
-    <form action="">
-        <input type="text" name="" id="">
-        <input type="text">
-    </form>
+
+<div class="login-panel">
+    <h2>Login</h2>
+    <div id="error" class="error-message"></div>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+    function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        
+        // Here, you can perform validation, authentication, and other tasks.
+        // For simplicity, let's just show an error if the fields are empty.
+        if (username.trim() === '' || password.trim() === '') {
+            document.getElementById('error').textContent = 'Please enter both username and password.';
+            return;
+        }
+        
+        // Check if the username and password match some predefined values (for demonstration purposes).
+        // Replace this with your actual authentication logic.
+        if (username === 'admin' && password === 'password') {
+            // If authentication is successful, redirect to the "cours.html" page.
+            window.location.href = 'cours.html';
+        } else {
+            // If authentication fails, display an error message.
+            document.getElementById('error').textContent = 'Invalid username or password.';
+        }
+    }
+</script>
+
 </body>
 </html>
